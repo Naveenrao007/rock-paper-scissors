@@ -7,78 +7,160 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="root">
-      <div id="content1">
-        <div>
-          <div>
+    <div class="container">
+      <div id="header" class="header ">
+        <div class="flexdr jcsb pd10px m-auto wd60vw border-common">
+          <div class="whiteClr gameheadingbox">
             <p>ROCK</p>
             <p>PAPER</p>
             <p>SCISSORS</p>
           </div>
-          <div>
-            <div>
+          <div class="flexdr gap1rem">
+            <div class="score-boxes">
               <p>COMPUTER</p>
               <p>SCORE</p>
-              <p id="computerCount"></p>
+              <p class="countFont" id="computerCount">0</p>
             </div>
-            <div>
+            <div class="score-boxes">
               <p>YOUR</p>
               <p>SCORE</p>
-              <p id="userCount"></p>
+              <p  class="countFont" id="userCount">0</p>
             </div>
           </div>
         </div>
-        <div>
-          <div></div>
-          <div>
-            <h1>Game Rules</h1>
-            <ul>
-              <li>
-                Rock beats scissors, scissors beat paper, and paper beats rock.
-              </li>
-              <li>
-                Agree ahead of time whether you’ll count off “rock, paper,
-                scissors, shoot” or just “rock, paper, scissors.”
-              </li>
-              <li>
-                Use rock, paper, scissors to settle minor decisions or simply
-                play to pass the time
-              </li>
-              <li>
-                If both players lay down the same hand, each player lays down
-                another hand
-              </li>
-            </ul>
+      </div>
+      <div id="content1" class="fexdr">
+        <div class="m-auto height65vh   wd40vw" id="firstScreen">
+          <div class="wd100per">
+            <div class="initialScreen">
+              <div class="relative1" onclick="chooseOne(1)">
+                <img src="./IMG/blueCircle.svg" alt="grp1" />
+                <div class="childIcon">
+                  <img src="./IMG/rock.svg" alt="" />
+                </div>
+              </div>
+              <div class="line1"><img src="./IMG/Line 1.svg" alt="" /></div>
+
+              <div class="relative2" onclick="chooseOne(2)">
+                <img src="./IMG/violetCircle.svg" alt="grp1" />
+
+                <div class="childIcon">
+                  <img src="./IMG/scissor.svg" alt="" />
+                </div>
+              </div>
+              <div class="line2">
+                <img src="./IMG/Line 2.svg" alt="" />
+              </div>
+              <div class="relative3" onclick="chooseOne(3)">
+                <img src="./IMG/yellowCircle.svg" alt="grp1" />
+
+                <div class="childIcon">
+                  <img src="./IMG/paper.svg" alt="" />
+                </div>
+              </div>
+              <div class="line3">
+                <img src="./IMG/Line 3.svg" alt="" />
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <div>
-            <button>RULES</button>
-            <button>NEXT</button>
+        <div id="resultContainer" class="m-auto height65vh  wd55vw">
+          <div class="resultdiv heightFull">
+            <div class="resultParentdiv">
+              <div class="resulttitle">
+                <p>YOU PICKED</p>
+              </div>
+              <div>
+                <div class="outer">
+                  <img id="userSelectOuter" src="./IMG/violetCircle.svg" alt="" />
+                  <div class="inner">
+                    <img id="userSelectInner" src="./IMG/paper.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="resulttexts">
+              <h1 id="resultHeading">YOU LOST !</h1>
+              <h3 id="againText">AGAINST PC</h3>
+              <button id="playAgainBtn" onclick="PlayAgain()" class="result-button">REPLAY</button>
+            </div>
+            <div class="resultParentdiv">
+              <div class="resulttitle">
+                <p>PC PICKED</p>
+              </div>
+              <div>
+                <div class="outer">
+                  <img id="pcSelectOuter" src="./IMG/blueCircle.svg" alt="" />
+                  <div class="inner">
+                    <img id="pcSelectInner" src="./IMG/scissor.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div id="content2"></div>
-      <div id="content3"></div>
-      <div id="content4"></div>
-      <div id="content5">
-        <div>
-          <div>
-            <img src="./IMG/Group 5.jpg" alt="victoryImg">
-            <img src="./IMG/Vector (2).svg" alt="victoryCup ">
-          </div>
-          <div>
-            <p>HURRAY!!</p>
-            <p>YOU WON THE GAME</p>
-          </div>
-          <div>
-            <button>PLAY AGAIN</button>
-          </div>
+      <div
+        class="gameRuleContainerParent displayNone"
+        id="gameRuleContainerParent"
+      >
+        <div class="gameRuleContainer">
+          <h1>Game Rules</h1>
+          <ul>
+            <li>
+              Rock beats scissors, scissors beat paper, and paper beats rock.
+            </li>
+            <li>
+              Agree ahead of time whether you’ll count off “rock, paper,
+              scissors, shoot” or just “rock, paper, scissors.”
+            </li>
+            <li>
+              Use rock, paper, scissors to settle minor decisions or simply play
+              to pass the time
+            </li>
+            <li>
+              If both players lay down the same hand, each player lays down
+              another hand
+            </li>
+          </ul>
         </div>
-        <div>
-          <button>Rules</button>
+        <div class="cancelOuter" id="hideRulesBtn">
+          <img src="./IMG/Ellipse 6.svg" alt="" />
+          <div class="cancelInner">
+            <img src="./IMG/X.svg" alt="" />
+          </div>
         </div>
       </div>
+      <div id="winnerTemplate" class="winnerTemplate displayNone">
+        <div class="wd40vw m-auto">
+          <div class="w-outer">
+            <img src="./IMG/Group 5.svg" alt="victoryImg" />
+            <div class="w-inner">
+              <img src="./IMG/Vector (2).svg" alt="victoryCup " />
+            </div>
+          </div>
+        </div>
+        <div class=" winnertemlateText wd40vw m-auto">
+        <div class="won-text" >
+          <h1>HURRAY!!</h1>
+          <p>YOU WON THE GAME</p>
+        </div>
+        <div>
+          <button id="playAgain2" onclick="PlayAgain()" class="result-button">PLAY AGAIN</button>
+        </div>
+        </div>
+
+      </div>
+      <div class="footer">
+        <div>
+          <div class="buttons-container">
+            <button class="primary-button" id="showRulesBtn">RULES</button>
+            <button id="nextBtn" class="primary-button " style="display: none;">NEXT</button>
+          </div>
+        </div>
+      </div>
+
+      
     </div>
 
     <script src="./script.js"></script>
